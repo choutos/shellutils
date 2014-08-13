@@ -1,0 +1,12 @@
+#!/bin/bash
+set -x
+
+if [ $# -eq 1 ]
+then
+    MYPATH=$1
+else
+    MYPATH="."
+fi
+
+find $MYPATH -type d -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+
